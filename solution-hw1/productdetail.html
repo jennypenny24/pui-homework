@@ -2,31 +2,49 @@
 
 <html>
 
-<head>
-  <title>PUI HW 1</title>
-  <link rel = "stylesheet" href="css/style.css">
-  <a href="./productgallery.html"><img class = "logo" src="assets/logo/logo-01.svg"></a>
-</head>
+  <head>
+    <title>PUI HW 1</title>
+    <link rel = "stylesheet" href="css/style.css">
+    <a href="./productgallery.html"><img class = "logo" src="assets/logo/logo-01.svg"></a>
+  </head>
 
-
+  <hr width="100%">
   <body>
-    <hr width="100%">
     <div class = "notecard">
-      <h1>PRODUCTS</h1>
+      
+      <a href="./productgallery.html"><h1>PRODUCTS</h1></a>
       <h1>CART</h1>
-      <h1>Original cinnamon roll</h1>
-      <img class = "thumbnail" src="assets/products/original-cinnamon-roll.jpg"/>
+
+      <div class = "createspace">
+      <h2>Original cinnamon roll</h2>
+      <div class = "createspace"></div>
+
+      <img class = "productdetailimg" src="assets/products/original-cinnamon-roll.jpg"/>
+      
       <p>Customize our delicious, hand-making cinnamons to your liking!</p>
-      <label for="dog-names">Glazing:</label> 
+
+      <label for="glaze-type">Glazing:</label> 
       <p>
-        <select name="dog-names" id="dog-names"> 
+        <select name="name1" id="name1"> 
           <option value="original">Keep original</option> 
           <option value="sugar">Sugar milk</option> 
           <option value="vanilla">Vanilla milk</option> 
           <option value="doublechoc">Double chocolate</option> 
         </select>
       </p>
-      <button>X</button>
+
+      <label for="pack-size">Pack size:</label> 
+      <p>
+        <select name="name2" id="name2"> 
+          <option value="1">1</option> 
+          <option value="3">3</option> 
+          <option value="6">6</option> 
+          <option value="12">12</option> 
+        </select>
+      </p>
+      
+      <p>$2.49<button class="btn">Add to Cart</button></p>
+      
     </div>
   </body>
   
