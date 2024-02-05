@@ -386,11 +386,19 @@
 
     }
 
+    #header-things hr{
+      height: 4px;
+      background: black;
+      width: 100%;
+      margin-bottom: 30px;
+
+    }
+
     hr{
       height: 4px;
       background: black;
       width: 100%;
-      margin-bottom: 20px;
+      /* margin-bottom: 30px; */
 
     }
 
