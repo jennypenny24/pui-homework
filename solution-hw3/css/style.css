@@ -177,10 +177,10 @@
       padding-top: 5px;
       padding-bottom: 5px;
       color: black;
-      margin-left: 12px;
       cursor: pointer;
-      padding-left: 25px;
-      padding-right: 25px;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 400px;
     }
 
     .detailprice{
@@ -193,6 +193,7 @@
       font-family: Arial;
       font-weight: bold;
       font-size: 20px;
+      text-align: left;
     }
 
     .total{
