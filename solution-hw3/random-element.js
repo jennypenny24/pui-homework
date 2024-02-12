@@ -17,13 +17,12 @@ const packPrice = {
 function calcTotalPrice() {
   const selectedGlaze = document.getElementById("dropdown1-glazing").value;
   const selectedPack = document.getElementById("dropdown1-pack").value;
-  const finalPrice = (startPrice + glazePrice[selectedGlaze]) * packPrice[selectedPack];
+  finalPrice = (startPrice + glazePrice[selectedGlaze]) * packPrice[selectedPack];
   return finalPrice.toFixed(2);
 }
 
-function updatePriceDisplay() {
-  const finalPrice = calcTotalPrice();
-  document.querySelector(".detailpricetext").textContent = "$" + finalPrice;
+function updatePriceShown() {
+  document.querySelector(".detailpricetext").textContent = "$" + calcTotalPrice();
 }
 
 
