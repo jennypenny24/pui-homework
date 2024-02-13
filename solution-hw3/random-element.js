@@ -15,8 +15,8 @@ const packPrice = {
 };
 
 function calcTotalPrice() {
-  const selectedGlaze = document.getElementById("dropdown1-glazing").value;
-  const selectedPack = document.getElementById("dropdown1-pack").value;
+  selectedGlaze = document.querySelector("#dropdown1-glazing").value;
+  selectedPack = document.querySelector("#dropdown1-pack").value;
   finalPrice = (startPrice + glazePrice[selectedGlaze]) * packPrice[selectedPack];
   return finalPrice.toFixed(2);
 }
