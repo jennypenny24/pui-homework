@@ -25,26 +25,14 @@ const rolls = {
   }    
 };
 
-// Parse URL parameter
-const queryString = window.location.search;
-const params = new URLSearchParams(queryString);
-const rollType = params.get('roll');
 
-// extract roll info
-function extractRoll() {
-    let roll = rolls[rollType];
-    let rollBasePrice = roll.basePrice;
 
-    const headerElement = document.querySelector('#roll-name');
-    headerElement.innerText = rollType + ' Cinnamon Roll';
 
-    const imgElement = document.querySelector('#main-img');
-    imgElement.src = 'assets/products/' + imageFile;
 
-    const priceElement = document.querySelector('#priceId');
-    priceElement.innerText = '$'+rollBasePrice;
 
-}
+
+
+
 
 
 
