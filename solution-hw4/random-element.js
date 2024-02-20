@@ -1,7 +1,7 @@
 const glazePrices = {
-  "Original": 0,
-  "Sugar": 0,
-  "Vanilla": 0.50,
+  "Keep original": 0,
+  "Sugar milk": 0,
+  "Vanilla milk": 0.50,
   "Double Chocolate": 1.50
 };
 
@@ -37,7 +37,6 @@ function updatePriceShown() {
   document.querySelector(".detailpricetext").textContent = "$" + calcTotalPrice();
 }
 
-// URL 
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const rollType = params.get('roll');
@@ -45,15 +44,15 @@ const rollType = params.get('roll');
 //reassign so basePrice is based on what user clicks
 let basePrice = rolls[rollType].basePrice;
 
-//change header
+//header
     const headerElement = document.querySelector('h2');
     headerElement.innerText = rollType + ' Cinnamon Roll';
 
-//change image 
+//image 
     const imgElement = document.querySelector('#detailpage-img');
     imgElement.src = "assets/products/" + rolls[rollType]["imageFile"];
 
-//change price 
+//price 
     const priceElement = document.querySelector('.detailpricetext');
     priceElement.innerText = '$' + rolls[rollType].basePrice;
 
@@ -74,9 +73,9 @@ class Roll {
 function addToCart() {
     let type = rollType;
     let selectedGlazing = document.querySelector('#dropdown1-glazing');
-    let glazing = selectedGlazing.options[selectedGlazing.selectedIndex].text;
+    let glazing = document.querySelector('#dropdown1-glazing').options[selectedGlazing.selectedIndex].text;
     let selectedPack = document.querySelector('#dropdown1-pack');
-    let size = selectedPack.options[selectedPack.selectedIndex].text;
+    let size = document.querySelector('#dropdown1-pack').options[selectedPack.selectedIndex].text;
     let price = rolls[rollType].basePrice;
     cart.push(new Roll(type, glazing, size, price));
     console.log(cart);
