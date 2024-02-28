@@ -88,13 +88,12 @@ function updateElement(roll) {
 
   // copy our notecard content over to the corresponding HTML elements
   rollImageElement.src = "assets/products/" + rolls[roll.type]["imageFile"];
-  console.log(rollImageElement.src);
 
   finalPrice = (roll.basePrice + parseFloat(glazePrices[roll.glazing])) * parseFloat(packPrices[roll.size]);
   finalPrice = finalPrice.toFixed(2);
   
   rollPriceElement.innerText = "$ " + finalPrice;
-  rollTypeElement.innerText = roll.type;
+  rollTypeElement.innerText = roll.type + " Cinnamon Roll";
   rollGlazingElement.innerText = roll.glazing;
   rollSizeElement.innerText = "Pack Size: " + roll.size;
   
