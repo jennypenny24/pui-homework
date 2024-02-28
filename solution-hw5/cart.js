@@ -30,19 +30,6 @@ class Roll {
 
 const rollSet = new Set();
 
-// This function creates a new object, and adds it to Set.
-function addNewRolls(imageURL, price, body) {
-  // Create a new notecard object. The Notecard constructor takes three
-  // arguments: the image URL, title text,  and body text.
-  const notecard = new roll(imageURL, price, body);
-
-  // Add the notecard object to our notecard Set, which keeps track of all
-  // the notecards in our application.
-  rollSet.add(roll);
-
-  return roll;
-}
-
 //make four new roll objects and add them to your cart 
 function newObjects() {
   itemsInCart.push(new Roll("Apple", "Keep original", 3, rolls["Apple"]["basePrice"]));
@@ -54,12 +41,11 @@ function newObjects() {
 newObjects();
 
 function createElement(roll) {
-  // make a clone of the notecard template
+  // make a clone of the template
   const template = document.querySelector('#cart-template');
   const clone = template.content.cloneNode(true);
   
-  // connect this clone to our notecard.element
-  // from this point we only need to refer to notecard.element
+  // connect this clone to our roll.element
   roll.element = clone.querySelector('.cartitem1');
 
   const btnDelete = roll.element.querySelector('.remove');
@@ -68,12 +54,12 @@ function createElement(roll) {
     deleteNote(roll);
   });
   
-  // add the notecard clone to the DOM
-  // find the notecard parent (#notecard-list) and add our notecard as its child
+  // add the roll clone to the DOM
+  // find the parent and add our roll as its child
   const cartListElement = document.querySelector('.cartmaincontainer');
   cartListElement.prepend(roll.element);
   
-  // populate the notecard clone with the actual notecard content
+  // populate the clone with the actual roll content
   updateElement(roll);
 
 }
@@ -86,12 +72,11 @@ function updateElement(roll) {
   const rollGlazingElement = roll.element.querySelector('.glazing');
   const rollSizeElement = roll.element.querySelector('.size');
 
-  // copy our notecard content over to the corresponding HTML elements
-  rollImageElement.src = "assets/products/" + rolls[roll.type]["imageFile"];
-
+  // copy our roll content over to the corresponding HTML elements
   finalPrice = (roll.basePrice + parseFloat(glazePrices[roll.glazing])) * parseFloat(packPrices[roll.size]);
   finalPrice = finalPrice.toFixed(2);
   
+  rollImageElement.src = "assets/products/" + rolls[roll.type]["imageFile"];
   rollPriceElement.innerText = "$ " + finalPrice;
   rollTypeElement.innerText = roll.type + " Cinnamon Roll";
   rollGlazingElement.innerText = roll.glazing;
@@ -100,7 +85,7 @@ function updateElement(roll) {
 }
 
 function deleteNote(roll) {
-  // remove the notecard DOM object from the UI
+  // remove the DOM object from the UI
   roll.element.remove();
   const cartindex = itemsInCart.indexOf(roll);
   if (cartindex !== -1) {

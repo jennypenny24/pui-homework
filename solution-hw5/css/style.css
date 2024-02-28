@@ -261,7 +261,7 @@
     .cartitem1{
       display: flex;
       flex-wrap: wrap;
-      margin-top: 60px;
+      margin-top: 5px;
     }
 
     .detailcontainer{
