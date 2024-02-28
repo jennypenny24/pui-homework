@@ -45,17 +45,16 @@ const rollType = params.get('roll');
 let basePrice = rolls[rollType].basePrice;
 
 //header
-    const headerElement = document.querySelector('h2');
-    headerElement.innerText = rollType + ' Cinnamon Roll';
+const headerElement = document.querySelector('h2');
+headerElement.innerText = rollType + ' Cinnamon Roll';
 
 //image 
-    const imgElement = document.querySelector('#detailpage-img');
-    imgElement.src = "assets/products/" + rolls[rollType]["imageFile"];
+const imgElement = document.querySelector('#detailpage-img');
+imgElement.src = "assets/products/" + rolls[rollType]["imageFile"];
 
 //price 
-    const priceElement = document.querySelector('.detailpricetext');
-    priceElement.innerText = '$' + rolls[rollType].basePrice;
-
+const priceElement = document.querySelector('.detailpricetext');
+priceElement.innerText = '$' + rolls[rollType].basePrice;
 
 const cart = [];
 
