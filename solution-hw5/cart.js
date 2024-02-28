@@ -11,76 +11,6 @@ const packPrices = {
   "6": 5,
   "12": 10
 };
-/*
-for (const key in glazePrices) {
-  option = document.createElement("option");
-  option.text = key;
-  option.value = glazePrices[key];
-  document.querySelector("#dropdown1-glazing").appendChild(option);
-}
-
-for (const key in packPrices) {
-  option = document.createElement("option");
-  option.text = key;
-  option.value = packPrices[key];
-  document.querySelector("#dropdown1-pack").appendChild(option);
-}
-
-function calcTotalPrice() {
-  selectedGlaze = document.querySelector("#dropdown1-glazing").value;
-  selectedPack = document.querySelector("#dropdown1-pack").value;
-  finalPrice = (basePrice + parseFloat(selectedGlaze)) * parseFloat(selectedPack);
-  return finalPrice.toFixed(2);
-}
-
-function updatePriceShown() {
-  document.querySelector(".detailpricetext").textContent = "$" + calcTotalPrice();
-}
-
-const queryString = window.location.search;
-const params = new URLSearchParams(queryString);
-const rollType = params.get('roll');
-
-//reassign so basePrice is based on what user clicks
-let basePrice = rolls[rollType].basePrice;
-
-//header
-const headerElement = document.querySelector('h2');
-headerElement.innerText = rollType + ' Cinnamon Roll';
-
-//image 
-const imgElement = document.querySelector('#detailpage-img');
-imgElement.src = "assets/products/" + rolls[rollType]["imageFile"];
-
-//price 
-const priceElement = document.querySelector('.detailpricetext');
-priceElement.innerText = '$' + rolls[rollType].basePrice;
-
-const cart = [];
-
-// class definition
-class Roll {
-  constructor(rollType, rollGlazing, packSize, basePrice) {
-      this.type = rollType;
-      this.glazing =  rollGlazing;
-      this.size = packSize;
-      this.basePrice = basePrice;
-  }
-}
-
-// show in the console 
-function addToCart() {
-    let type = rollType;
-    let selectedGlazing = document.querySelector('#dropdown1-glazing');
-    let glazing = document.querySelector('#dropdown1-glazing').options[selectedGlazing.selectedIndex].text;
-    let selectedPack = document.querySelector('#dropdown1-pack');
-    let size = document.querySelector('#dropdown1-pack').options[selectedPack.selectedIndex].text;
-    let price = rolls[rollType].basePrice;
-    cart.push(new Roll(type, glazing, size, price));
-    console.log(cart);
-}
-
-*/
 
 //HW 5
 //create an array or set to represent your cart 
@@ -93,13 +23,14 @@ class Roll {
       this.glazing =  rollGlazing;
       this.size = packSize;
       this.basePrice = rollPrice;
+      this.finalPrice = (this.basePrice + parseFloat(glazePrices[this.glazing])) * parseFloat(packPrices[this.size]);
       this.element = null;
   }
 }
 
 const rollSet = new Set();
 
-// This function creates a new Notecard object, and adds it to notecardSet.
+// This function creates a new object, and adds it to Set.
 function addNewRolls(imageURL, price, body) {
   // Create a new notecard object. The Notecard constructor takes three
   // arguments: the image URL, title text,  and body text.
@@ -114,10 +45,10 @@ function addNewRolls(imageURL, price, body) {
 
 //make four new roll objects and add them to your cart 
 function newObjects() {
-  itemsInCart.push(new Roll("Original", "Sugar milk", 1, rolls["Original"]["basePrice"]));
-  itemsInCart.push(new Roll("Walnut", "Vanilla milk", 12, rolls["Walnut"]["basePrice"]));
-  itemsInCart.push(new Roll("Raisin", "Sugar milk", 3, rolls["Raisin"]["basePrice"]));
   itemsInCart.push(new Roll("Apple", "Keep original", 3, rolls["Apple"]["basePrice"]));
+  itemsInCart.push(new Roll("Raisin", "Sugar milk", 3, rolls["Raisin"]["basePrice"]));
+  itemsInCart.push(new Roll("Walnut", "Vanilla milk", 12, rolls["Walnut"]["basePrice"]));
+  itemsInCart.push(new Roll("Original", "Sugar milk", 1, rolls["Original"]["basePrice"]));
 }
 
 newObjects();
@@ -149,11 +80,6 @@ function createElement(roll) {
 
 function updateElement(roll) {
   // get the HTML elements that need updating
-  /*
-  const noteImageElement = notecard.element.querySelector('.notecard-thumbnail');
-  const noteTitleElement = notecard.element.querySelector('.note-title');
-  const noteBodyElement = notecard.element.querySelector('.note-body');
-  */
   const rollImageElement = roll.element.querySelector('.cartimg');
   const rollPriceElement = roll.element.querySelector('.cartprice');
   const rollTypeElement = roll.element.querySelector('.type');
@@ -165,46 +91,44 @@ function updateElement(roll) {
   console.log(rollImageElement.src);
 
   finalPrice = (roll.basePrice + parseFloat(glazePrices[roll.glazing])) * parseFloat(packPrices[roll.size]);
-  finalPrice.toFixed(2);
+  finalPrice = finalPrice.toFixed(2);
   
   rollPriceElement.innerText = "$ " + finalPrice;
   rollTypeElement.innerText = roll.type;
   rollGlazingElement.innerText = roll.glazing;
   rollSizeElement.innerText = "Pack Size: " + roll.size;
-
-  totalPrice = 0;
-  itemsInCart.forEach(roll => totalPrice += finalPrice);
-  const totalPriceElement = document.querySelector(".totalsum");
-  totalPriceElement.innerText = "$ " + totalPrice.toFixed(2);
+  
 }
 
 function deleteNote(roll) {
   // remove the notecard DOM object from the UI
   roll.element.remove();
-  // remove the actual Notecard object from our set of notecards
-  rollSet.delete(roll);
+  const cartindex = itemsInCart.indexOf(roll);
+  if (cartindex !== -1) {
+    itemsInCart.splice(cartindex, 1);
+  }
+  changeTotalPrice();
 }
 
 for (const roll of itemsInCart) {
   console.log(roll);
   createElement(roll);
 }
-/*
-// update the total price field based on the current cart
-function updateTotalPrice() {
+
+function changeTotalPrice() {
   let totalPrice = 0;
-  itemsInCart.forEach(roll => totalPrice += finalPrice);
-  const totalPriceElement = document.querySelector(".totalsum");
+  for (let i = 0; i < itemsInCart.length; i++) {
+    totalPrice += itemsInCart[i].finalPrice;
+  }
+  const totalPriceElement = document.querySelector('.totalsum');
   totalPriceElement.innerText = "$ " + totalPrice.toFixed(2);
 }
 
-for (const roll of itemsInCart) {
-  console.log(roll);
-  createElement(roll);
-}
+changeTotalPrice();
 
-updateTotalPrice();
-*/
-//console.log(updateTotalPrice());
+
+
+
+
 
 

@@ -139,7 +139,6 @@
       font-size: 20px;
       font-weight: lighter;
       display: flex;
-      justify-content: flex-end;
       align-content: center;
       flex-direction: row;
       flex-wrap: wrap;
@@ -199,8 +198,8 @@
     .total{
       font-family: Arial;
       color: black;
-      text-align: right;
       display: flex;
+      font-size: 20px;
     }
 
     .carttotals{
@@ -211,13 +210,14 @@
     }
 
     .totalsum{
-      display: flex;
-      justify-content: space-between;
       font-family: Arial;
       color: black;
+      text-align: right;
+      display: flex;
       font-size: 20px;
       font-weight: lighter;
       margin-left: 360px;
+      padding-top: 20px;
     }
 
     .checkoutbtn{
@@ -262,7 +262,6 @@
       display: flex;
       flex-wrap: wrap;
       margin-top: 60px;
-      padding-right: 95px;
     }
 
     .detailcontainer{
