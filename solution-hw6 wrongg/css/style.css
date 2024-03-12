@@ -1,0 +1,348 @@
+.logo{
+  width: 400px;
+  text-align: left;
+  margin-right: 15px;
+  }
+
+    a{
+      text-decoration: none;
+    }
+
+    .productunit{
+      text-wrap: wrap;
+      flex-wrap: wrap;
+      inline-size: min-content;
+      word-wrap: break-word;
+      height: auto;
+    }
+
+    .productunit:hover{
+      background-color: yellow;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .margin{
+      margin-bottom: 25px;
+    }
+    
+    h1nohighlight{
+      font-family: Arial;
+      color: black;
+      font-size: 20px;
+    }
+
+    h1highlight{
+      font-family: Arial;
+      color: black;
+      font-size: 20px;
+      font-weight: bolder;
+      background-color: yellow;
+    }
+
+    .oval{
+      background: red;
+      border-radius:50%;
+      color: white;
+      text-align: center;
+      display:inline;
+      padding-bottom: 2px;
+    }
+
+    .cartnumber{
+      color: white;
+      font-family: Arial;
+      font-size:16px;
+      text-align: center;
+      padding: 4px;
+      display:inline;
+    }
+
+    p{
+      text-decoration: none;
+      width: 100%;
+      font-family: Arial;
+      color: black;
+      font-size: 20px;
+      font-weight: lighter; 
+    }
+
+    .p1{
+      font-family: Arial;
+      color: black;
+      font-size: 20px;
+      font-weight: lighter;
+      flex-wrap: wrap;
+      text-wrap: wrap;
+    }
+
+    h2{
+      font-family: Arial;
+      color: black;
+      font-size: 26px;
+      font-weight: lighter;
+    }
+  
+    body{
+      font-family: Arial;
+    }
+
+    .remove{
+      font-family: Arial;
+      color: black;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: underline;
+      display: flex;
+      width: 500px;
+      cursor: pointer;
+    }
+  
+    .rollname{
+      font-family: Arial;
+      color: black;
+      font-size: 20px;
+      text-decoration: underline;
+      text-align: left;
+      margin-left: 5px;
+    }
+  
+    .price{
+      font-family: Arial;
+      color: black;
+      font-size: 20px;
+      text-align: left;
+      text-decoration: none;
+      padding-bottom: 5px;
+      font-weight: lighter;
+      margin-left: 5px;
+    }
+
+    .cartimg{
+      display: flex;
+      width: 200px;
+      height: 200px;
+      border: 3px solid black;
+      margin-right: 40px;
+    }
+
+    .cartdetails{
+      font-family: Arial;
+      color: black;
+      font-size: 20px;
+      font-weight: lighter;
+    }
+
+    .cartprice{
+      font-family: Arial;
+      color: black;
+      font-size: 20px;
+      font-weight: lighter;
+      display: flex;
+      align-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+  
+    #dropdown1-glazing{
+      width: 100%;
+      color: black;
+      font-size: 20px;
+      font-weight: lighter;  
+    }
+
+    #dropdown1-pack{
+      width: 100%;
+      color: black;
+      font-size: 20px;
+      font-weight: lighter;  
+    }
+
+    .dropdowns{
+      width: 100%;
+      font-family: Arial;
+      color: black;
+      font-size: 20px;
+      font-weight: lighter;  
+    }
+  
+    .addbtn{
+      font-family: Arial;
+      font-weight: bold;
+      font-size: 20px;
+      background-color: yellow;
+      border: 1px solid black;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: black;
+      cursor: pointer;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 400px;
+    }
+
+    .detailprice{
+      font-family: Arial;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .detailpricetext{
+      font-family: Arial;
+      font-weight: bold;
+      font-size: 20px;
+      text-align: left;
+    }
+
+    .total{
+      font-family: Arial;
+      color: black;
+      display: flex;
+      font-size: 20px;
+    }
+
+    .carttotals{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-left: auto;
+    }
+
+    .totalsum{
+      font-family: Arial;
+      color: black;
+      text-align: right;
+      display: flex;
+      font-size: 20px;
+      font-weight: lighter;
+      margin-left: 360px;
+      padding-top: 20px;
+    }
+
+    .checkoutbtn{
+      font-family: Arial;
+      color: black;
+      font-size: 20px;
+      font-weight: bold;
+      background-color: yellow;
+      border: 1px solid black;
+      padding: 20px;
+      cursor: pointer;
+      float: right;
+      margin-right: 90px;
+    }
+
+    .bigcontainer{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 60px;
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+
+    .biggercontainer{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 60px;
+
+    }
+
+    .cartmaincontainer{
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 60px;
+      padding-right: 95px;
+      padding-left: 475px;
+    }
+
+    .cartitem1{
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 5px;
+    }
+
+    .detailcontainer{
+      display: flex;
+      justify-content: space-between; 
+      flex-wrap: wrap;
+      border: 3px solid black;
+    }
+
+    .detailbuttons{
+      display: flex;
+      text-align: right;
+      justify-content: center;
+    }
+
+    .detailtextcontainer{
+      display: flex;
+      text-align: left;
+      flex-direction: column;
+      width: 250px;
+      margin-left: 30px;
+      justify-content: space-between;
+    }
+
+    #detailpage-img {
+      border: 5px solid black;
+      width: 600px;
+    }
+
+    .thumbnail-row{
+      width: 285px;
+      height: 285px;
+      border: 3px solid black;
+      margin: 5px; 
+    }
+
+    #header{
+      display: flex;
+      font-size: 20px;
+      justify-content: space-between;
+    }
+
+    #header-things{
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    #links{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    #header-things hr{
+      height: 4px;
+      background: black;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    hr{
+      height: 4px;
+      background: black;
+      width: 100%;
+    }
+
+    .secondcartline{
+      height: 4px;
+      background: black;
+      width: 100%;
+    }
+
+    ul{
+      list-style-type: none;
+    }
+
+    li{
+      display:inline;
+      margin-right: 50px;
+    }
+
