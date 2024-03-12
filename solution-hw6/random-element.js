@@ -42,7 +42,9 @@ const params = new URLSearchParams(queryString);
 const rollType = params.get('roll');
 
 //reassign so basePrice is based on what user clicks
+console.log(rolls[rollType]);
 let basePrice = rolls[rollType].basePrice;
+
 
 //header
 const headerElement = document.querySelector('h2');
@@ -60,11 +62,13 @@ const cart = [];
 
 // class definition
 class Roll {
-  constructor(rollType, rollGlazing, packSize, basePrice) {
-      this.type = rollType;
-      this.glazing =  rollGlazing;
-      this.size = packSize;
-      this.basePrice = basePrice;
+  constructor(rollType, rollGlazing, packSize, rollPrice) {
+    this.type = rollType;
+    this.glazing = rollGlazing;
+    this.size = packSize;
+    this.basePrice = rollPrice;
+    this.finalPrice = (this.basePrice + parseFloat(glazePrices[this.glazing])) * parseFloat(packPrices[this.size]);
+    this.element = null;
   }
 }
 

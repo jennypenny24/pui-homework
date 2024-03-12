@@ -1,33 +1,6 @@
-const glazePrices = {
-  "Keep original": 0,
-  "Sugar milk": 0,
-  "Vanilla milk": 0.50,
-  "Double Chocolate": 1.50
-};
 
-const packPrices = {
-  "1": 1,
-  "3": 3,
-  "6": 5,
-  "12": 10
-};
 
 let itemsInCart = [];
-
-// Cart page
-function populateCart() {
-  const cartListElement = document.querySelector('.cartmaincontainer');
-  cartListElement.innerHTML = ''; 
-
-  console.log("Items in cart:", itemsInCart); 
-
-  for (const roll of itemsInCart) {
-    createElement(roll);
-  }
-
-  changeTotalPrice(); 
-}
-
 
 // Product detail page
 function addToCart(rollType, rollGlazing, packSize, rollPrice) {
@@ -35,25 +8,25 @@ function addToCart(rollType, rollGlazing, packSize, rollPrice) {
   itemsInCart.push(roll); // Add the new roll to the cart
   console.log("Item added to cart:", roll); 
   saveToLocalStorage(); // Save the updated cart to local storage
-  populateCart(); // Update the cart display
   updateCartBadge(); // Update the cart badge count
 }
 
 // Roll class
 class Roll {
   constructor(rollType, rollGlazing, packSize, rollPrice) {
-    this.type = rollType;
-    this.glazing = rollGlazing;
-    this.size = packSize;
-    this.basePrice = rollPrice;
-    this.finalPrice = (this.basePrice + parseFloat(glazePrices[this.glazing])) * parseFloat(packPrices[this.size]);
-    this.element = null;
+      this.type = rollType;
+      this.glazing =  rollGlazing;
+      this.size = packSize;
+      this.basePrice = rollPrice;
+      this.finalPrice = (this.basePrice + parseFloat(glazePrices[this.glazing])) * parseFloat(packPrices[this.size]);
+      this.element = null;
   }
 }
 
 // Save cart to local storage
 function saveToLocalStorage() {
   const cartArrayString = JSON.stringify(itemsInCart);
+  console.log(cartArrayString);
   localStorage.setItem('cart', cartArrayString);
 }
 
@@ -67,7 +40,10 @@ function retrieveFromLocalStorage() {
   }
 }
 
-// DOM manipulation functions
+// Initial population of the cart on page load
+retrieveFromLocalStorage();
+
+// DOM 
 function createElement(roll) {
   const template = document.querySelector('#cart-template');
   const clone = template.content.cloneNode(true);
@@ -104,16 +80,16 @@ function updateElement(roll) {
   rollSizeElement.innerText = "Pack Size: " + roll.size;
 }
 
-// Initial population of the cart on page load
-retrieveFromLocalStorage();
-populateCart();
-
 // Remove item from cart
 function removeItem(index) {
   itemsInCart.splice(index, 1);
   saveToLocalStorage();
-  populateCart();
   updateCartBadge(); // Update cart badge count
+}
+
+for (const roll of itemsInCart) {
+  console.log(roll);
+  createElement(roll);
 }
 
 // Calculate and update total price
@@ -134,7 +110,6 @@ function updateCartBadge() {
 
 // Initial population of the cart on page load
 retrieveFromLocalStorage();
-populateCart();
 updateCartBadge(); // Update cart badge count
 
 
