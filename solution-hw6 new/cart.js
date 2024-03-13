@@ -145,6 +145,72 @@ if (localStorage.getItem('storedRolls') != null){
   retrieveFromLocalStorage();
 }
 
+// CART BADGEEE 
+function updateCartBadge() {
+  const cartBadge = document.querySelector('.cartnumber');
+  cartBadge.textContent = cart.length.toString();
+}
+
+// Function to handle "Add to Cart" button click event
+function addToCart() {
+  // Gather information about the selected options
+  let rollType = document.querySelector('#roll-type').innerText;
+  let rollGlazing = document.querySelector('#dropdown1-glazing').value;
+  let packSize = document.querySelector('#dropdown1-pack').value;
+  let rollPrice = parseFloat(document.querySelector('.detailpricetext').innerText.replace('$', ''));
+
+  // Create a new Roll instance
+  let newRoll = new Roll(rollType, rollGlazing, packSize, rollPrice);
+
+  // Add the new Roll instance to the cart array
+  cart.push(newRoll);
+
+  // Save the updated cart to local storage
+  saveCart();
+
+  // Print the current contents of the cart in local storage
+  printCart();
+
+  // Update the cart badge
+  updateCartBadge();
+}
+
+// Function to remove an item from the cart
+function removeFromCart(index) {
+  console.log("Cart before removal:", cart);
+
+  // Remove the item from the cart array
+  cart.splice(index, 1);
+
+  // Log the cart after removal
+  console.log("Cart after removal:", cart);
+
+  // Save the updated cart to local storage
+  saveCart();
+
+  // Print the current contents of the cart in local storage
+  printCart();
+
+  // Update the cart badge
+  //updateCartBadge();
+
+  // Remove the corresponding entry from the DOM
+  const cartItem = document.querySelectorAll('.cartitem1')[index];
+  cartItem.remove();
+  updateCartBadge();
+
+  // Update the total price field
+  changeTotalPrice();
+}
+
+// Call initializePage function when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize cart badge
+  updateCartBadge();
+
+  // Add event listener to "Add to Cart" button
+  //document.querySelector('.addbtn').addEventListener('click', addToCart);
+});
 
 
 

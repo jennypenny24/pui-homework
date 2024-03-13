@@ -164,7 +164,9 @@ function initiateCart() {
     else{
         return [];
     }
-    }
+}
+
+
 
 
 

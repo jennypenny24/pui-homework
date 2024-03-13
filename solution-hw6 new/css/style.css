@@ -3,6 +3,7 @@
   text-align: left;
   margin-right: 15px;
   }
+  
 
     a{
       text-decoration: none;
@@ -204,20 +205,17 @@
 
     .carttotals{
       display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-left: auto;
+      justify-content: flex-end;
+      margin-right: 95px;
     }
 
     .totalsum{
       font-family: Arial;
       color: black;
-      text-align: right;
       display: flex;
       font-size: 20px;
-      font-weight: lighter;
-      margin-left: 360px;
-      padding-top: 20px;
+      margin-left: 270px;
+      /*padding-top: 20px;*/
     }
 
     .checkoutbtn{
@@ -230,7 +228,7 @@
       padding: 20px;
       cursor: pointer;
       float: right;
-      margin-right: 90px;
+      margin-right: 95px;
     }
 
     .bigcontainer{
@@ -262,6 +260,7 @@
       display: flex;
       flex-wrap: wrap;
       margin-top: 5px;
+      /*border-bottom: 3px solid black;*/
     }
 
     .detailcontainer{
@@ -334,7 +333,9 @@
     .secondcartline{
       height: 4px;
       background: black;
-      width: 100%;
+      display: flex;
+      width: 613px;
+      margin-left: 475px;
     }
 
     ul{
@@ -345,4 +346,6 @@
       display:inline;
       margin-right: 50px;
     }
+
+
 
