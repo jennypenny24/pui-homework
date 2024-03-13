@@ -75,13 +75,16 @@ function createCartItem(roll) {
   const template = document.querySelector('#cart-template');
   const clone = template.content.cloneNode(true);
   roll.element = clone.querySelector('.cartitem1');
-  const rollListElement = document.querySelector('.cartmaincontainer');
-  rollListElement.append(roll.element);
-  updateElement(roll);
+
   const btnRemove = roll.element.querySelector('.remove');
   btnRemove.addEventListener('click', () => {
       removeCartItem(roll);
+      updateCartBadge();
   });  
+
+  const rollListElement = document.querySelector('.cartmaincontainer');
+  rollListElement.prepend(roll.element);
+  updateElement(roll);
 }
 
 // update roll element
@@ -121,7 +124,7 @@ function saveToLocalStorage() {
 // remove cart item
 function removeCartItem(roll) {
   roll.element.remove();
-  const {element, ...rest} = Object.assign({}, roll)
+  const {element, ...rest} = Object.assign({}, roll);
   const stringRoll = JSON.stringify(rest);
   let index = -1
   for (i=0; cart.length; i++){
@@ -134,7 +137,7 @@ function removeCartItem(roll) {
   cart.splice(index, 1);
   saveToLocalStorage();
   console.log('cart', localStorage.storedRolls);
-  const rollTotalCart = document.querySelector('.totalsum')
+  const rollTotalCart = document.querySelector('.totalsum');
   const rollTotalPrice = ((roll.basePrice+glazingPrices[roll.glazing])*packSizePrices[roll.size]).toFixed(2);
   totalPriceCart = (totalPriceCart - Number(rollTotalPrice)).toFixed(2);
   rollTotalCart.innerText = '$' + totalPriceCart;
@@ -144,6 +147,7 @@ function removeCartItem(roll) {
 if (localStorage.getItem('storedRolls') != null){
   retrieveFromLocalStorage();
 }
+
 
 // CART BADGEEE 
 function updateCartBadge() {
@@ -177,13 +181,8 @@ function addToCart() {
 
 // Function to remove an item from the cart
 function removeFromCart(index) {
-  console.log("Cart before removal:", cart);
-
   // Remove the item from the cart array
   cart.splice(index, 1);
-
-  // Log the cart after removal
-  console.log("Cart after removal:", cart);
 
   // Save the updated cart to local storage
   saveCart();
