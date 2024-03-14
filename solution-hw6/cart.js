@@ -95,23 +95,24 @@ function saveToLocalStorage() {
 function removeCartItem(roll) {
   roll.element.remove();
   const {element, ...rest} = Object.assign({}, roll);
-  const stringRoll = JSON.stringify(rest);
-
   let index = -1
-  for (i=0; cart.length; i++){
-      cartIndexString = JSON.stringify(cart[i]);
-      if (cartIndexString == stringRoll){
-          index = i;
-          break;
-      };
+  for (let i = 0; i < cart.length; i++) {
+    const cartIndexString = JSON.stringify(cart[i]);
+    if (cartIndexString === JSON.stringify(rest)) {
+      index = i;
+      break;
+    }
   }
   cart.splice(index, 1);
   saveToLocalStorage();
-  console.log('cart', localStorage.storedRolls);
-  
-  const rollTotalPrice = ((roll.basePrice+glazingPrices[roll.glazing])*packSizePrices[roll.size]).toFixed(2);
-  document.querySelector('.totalsum').innerText = '$' + (finalCartPrice - rollTotalPrice).toFixed(2);
+  rollTotalPrice = ((roll.basePrice + glazingPrices[roll.glazing]) * packSizePrices[roll.size]).toFixed(2);
+  finalCartPrice -= parseFloat(rollTotalPrice); 
+  if (cart.length === 0) {
+    finalCartPrice = 0;
+  }
+  document.querySelector('.totalsum').innerText = '$' + finalCartPrice.toFixed(2);
 }
+
 
 // call retrieveFromLocalStorage
 if (localStorage.getItem('storedRolls') != null){
@@ -124,6 +125,8 @@ function updateCartBadge() {
   const cartCountElement = document.getElementById('cart-count');
   cartCountElement.innerText = cart.length;
 }
+
+
 
 
 
