@@ -500,7 +500,7 @@ text-align: left;}
     transition: var(--transition-1);
   }
 
-  .navbar-link:is(:hover, :focus-visible) { color: orange; }
+  .navbar-link:is(:hover, :focus-visible) { color:#006389; }
 
   .navbar .social-link {
     color: var(--charcoal);
