@@ -134,7 +134,7 @@ body.nav-active { overflow: hidden; }
 
 .btn-primary,
 .btn-secondary:is(:hover, :focus-visible) {
-  background-color: orange;
+  background-color: #B56699;
   color: white;
 }
 
@@ -739,7 +739,7 @@ text-align: left;}
     border-radius: 10px;
     backface-visibility: hidden;
     overflow: hidden;
-    background: #B2D8E6;
+    background:#006389;
     color: white;
     }
   
@@ -753,7 +753,7 @@ text-align: left;}
     border-radius: 10px;
     backface-visibility: hidden;
     overflow: hidden;
-    background: #006389;
+    background: #B56699;
     color: white;
     text-align: center;
     transform: rotateY(180deg);
