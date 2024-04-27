@@ -1,28 +1,11 @@
-/*add event listener on multiple elements*/
-
+/*event listener*/
 const addEventOnElements = function (elements, eventType, callback) {
   for (let i = 0, len = elements.length; i < len; i++) {
     elements[i].addEventListener(eventType, callback);
   }
 }
 
-/*mobile nav bar*/
-
-const navbar = document.querySelector("[data-navbar]");
-const navTogglers = document.querySelectorAll("[data-nav-toggler]");
-const overlay = document.querySelector("[data-overlay]");
-
-const toggleNavbar = function () {
-  navbar.classList.toggle("active");
-  overlay.classList.toggle("active");
-  document.body.classList.toggle("nav-active");
-}
-
-addEventOnElements(navTogglers, "click", toggleNavbar);
-
-
 /*reveal items*/
-
 const revealElements = document.querySelectorAll("[data-reveal]");
 const revealDelayElements = document.querySelectorAll("[data-reveal-delay]");
 
@@ -41,8 +24,20 @@ for (let i = 0, len = revealDelayElements.length; i < len; i++) {
 window.addEventListener("scroll", reveal);
 window.addEventListener("load", reveal);
 
-/*cards*/
+/*mobile nav bar*/
+const navbar = document.querySelector("[data-navbar]");
+const navTogglers = document.querySelectorAll("[data-nav-toggler]");
+const overlay = document.querySelector("[data-overlay]");
 
+const toggleNavbar = function () {
+  navbar.classList.toggle("active");
+  overlay.classList.toggle("active");
+  document.body.classList.toggle("nav-active");
+}
+
+addEventOnElements(navTogglers, "click", toggleNavbar);
+
+/*cards*/
 var cardToFlip = document.querySelectorAll('.thecard');
 
     for (var thecard of cardToFlip){
@@ -68,7 +63,6 @@ $('.text span').each(function(index) {
     // delay the animation 
     $(this).delay(200 * index).animate({opacity: 1}, 500); 
 });
-
 
 document.addEventListener('DOMContentLoaded', function() {
 
