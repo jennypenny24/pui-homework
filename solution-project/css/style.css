@@ -134,7 +134,7 @@ body.nav-active { overflow: hidden; }
 
 .btn-primary,
 .btn-secondary:is(:hover, :focus-visible) {
-  background-color: #B56699;
+  background-color: #85366E;
   color: white;
 }
 
