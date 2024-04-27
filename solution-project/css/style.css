@@ -103,7 +103,7 @@ body.nav-active { overflow: hidden; }
 
 .image { 
   width: 100%; 
-  margin-bottom: 25px;}
+  margin-bottom: 20px;}
 
 .h1,
 .h2,
@@ -151,7 +151,7 @@ body.nav-active { overflow: hidden; }
 
 .section-title-project-2 { margin-block-end: 16px; 
     color: #006389;
-    margin-top: 40px; 
+    margin-top: 80px; 
 }
 
 .section-title-name { margin-block-end: 16px;
@@ -1171,6 +1171,10 @@ padding-top: 175px;
     display: none;
   }
 
+}
+
+.spaces {
+  padding-bottom: 30px;
 }
 
 
